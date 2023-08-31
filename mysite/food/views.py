@@ -5,5 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('This is an index view')
+    return HttpResponse('<h1 style="color:blue">This is an index view</h1>')
     
+def index_1(request):
+    return HttpResponse('<h1 style="color:Green">This is a details Page</h1>')
