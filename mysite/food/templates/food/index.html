@@ -8,7 +8,9 @@
 <body>
     <h1> This is an index page</h1>
 
-    {{itemlist}}
+    {% for item in itemlist %}
+        {{ item }}
+    {% endfor %}
 
 </body>
 </html>
