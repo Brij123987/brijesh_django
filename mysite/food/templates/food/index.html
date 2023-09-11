@@ -11,7 +11,9 @@
     {% for item in itemlist %}
       <ul>
         <li>
-          {{ item.id }} -- {{ item.item_name }}
+          <a href ="/food/details/{{ item.id }}/">
+            {{ item.id }} -- {{ item.item_name }}
+          </a>
         </li>
       </ul>
         
