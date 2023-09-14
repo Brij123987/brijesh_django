@@ -20,3 +20,6 @@ def index_1(request, item_id):
         'item':item
     }
     return render(request, 'food/detail.html', context)
+
+
+
