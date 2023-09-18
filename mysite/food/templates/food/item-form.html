@@ -1,3 +1,5 @@
+{% extends 'food/base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +8,33 @@
   <title>Document</title>
 </head>
 <body>
+  {% block body %}
   <form method="POST" action="">
     {% csrf_token %}
-    {{ form }}
+    
+    <label><b>Product Code: </b></label><br>
+    {{ form.prod_code }}
+    <br>
+    <label><b>For User: </b></label><br>
+    {{ form.for_user }}
+    <br>
+    <label><b>Item Name: </b></label><br>
+    {{ form.item_name }}
+    <br>
+    <label><b>Item Descriptions: </b></label><br>
+    {{ form.item_desc }}
+    <br>
+    <label><b>Item Price: </b></label><br>
+    {{ form.items_price }}
+    <br>
+    <label><b>Item Image: </b></label><br>
+    {{ form.item_image }}
+    <br>
     <button type="submit">
       Save
     </button>
   </form>
+
+  {% endblock %}
 </body>
 </html>
