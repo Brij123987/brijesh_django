@@ -1,4 +1,5 @@
 {% extends 'food/base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +10,14 @@
 <body>
   {% block body %}
 
-    <form action="">
+    <form method="POST">
       {% csrf_token %}
       {{ form }}
       <button type="submit"> 
           Sign Up
       </button>
     </form>
-  
-  
+
   {% endblock %}
   
 </body>
