@@ -9,7 +9,7 @@
 </head>
 <body>
   {% block body %}
-  <form action="" method="POST">
+  <form method="POST">
     {% csrf_token %}
     <label for="user">Username:</label><br>
     <input type="text" id="user" name="username" placeholder="Enter the Username!"><br>
