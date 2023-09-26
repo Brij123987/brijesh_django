@@ -16,6 +16,7 @@
           Exortillo
         </a>
         <div class="navbar">
+          {% if user.is_authenticated %}
           <a href="{% url 'food:create_item' %}" class="nav-item nav-link btn btn-dark">
             Add Item
           </a>
@@ -24,9 +25,21 @@
             Profile
           </a>
 
+          <a href="{% url 'logout' %}" class="nav-item nav-link btn btn-dark">
+            Logout
+          </a>
+
+          {% else %}
+
+          <a href="{% url 'login' %}" class="nav-item nav-link btn btn-dark">
+            Login
+          </a>
+
           <a href="{% url 'register' %}" class="nav-item nav-link btn btn-dark">
             Sign Up
           </a>
+
+          {% endif %}
 
         </div>
     </nav>
