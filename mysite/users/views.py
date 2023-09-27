@@ -33,13 +33,30 @@ def login_view(request):
 
     user = authenticate(request, username=username, password=password)
     
-    if user is not None:
+    if user is None:
+      messages.success(
+        request,
+        'Invalid Login, try again'
+      )
+      return redirect('login')
+
+    elif user.is_superuser:
+      login(request, user)
+      messages.success(
+        request,
+        f'Welcome Superuser {request.user.username}, you have been successfully logged in.'
+      )
+      return redirect('food:index')
+
+    elif user is not None:
       login(request, user)
       messages.success(
         request,
         f'Welcome {request.user.username}, you have been successfully logged in.'
       )
       return redirect('food:index')
+    
+
 
   return render(request, 'users/login.html')
 
