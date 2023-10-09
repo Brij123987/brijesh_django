@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from food.models import Item
 from food.forms import ItemForm
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 # Create your views here.
 
@@ -43,6 +44,19 @@ def index_1(request, item_id):
         'item':item
     }
     return render(request, 'food/detail.html', context)
+
+
+
+# Class based index views
+#  -------------------------------------------------------------------------------------
+
+class FoodDetail(DetailView):
+
+    model = Item
+    context_object_name = 'item'
+    template_name = 'food/detail.html'
+
+
 
 
 # Function based create view

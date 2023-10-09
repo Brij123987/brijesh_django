@@ -16,7 +16,12 @@ urlpatterns = [
 
     # Function based index_1 view
     #  -------------------------------------------------------------------------------------
-    path('details/<int:item_id>/',views.index_1, name ='index_1'),
+    # path('details/<int:item_id>/',views.index_1, name ='index_1'),
+
+
+    # Class based index views
+    #  -------------------------------------------------------------------------------------
+    path('details/<int:pk>/',views.FoodDetail.as_view(), name='index_1'),
 
 
     # Function based create_item view
