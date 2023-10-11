@@ -9,32 +9,51 @@
 </head>
 <body>
   {% block body %}
-  <form method="POST" action="">
-    {% csrf_token %}
-    
-    <label><b>Product Code: </b></label><br>
-    {{ form.prod_code }}
-    <br>
-    <label><b>For User: </b></label><br>
-    {{ form.for_user }}
-    <br>
-    <label><b>Item Name: </b></label><br>
-    {{ form.item_name }}
-    <br>
-    <label><b>Item Descriptions: </b></label><br>
-    {{ form.item_desc }}
-    <br>
-    <label><b>Item Price: </b></label><br>
-    {{ form.items_price }}
-    <br>
-    <label><b>Item Image: </b></label><br>
-    {{ form.item_image }}
-    <br>
-    <button type="submit">
-      Save
-    </button>
-  </form>
 
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-3">
+        <div class="card">
+          <div class="card-header text-white bg-info">
+            <div class="card-title" style="text-align: center; font-size:larger; font-style:italic">
+              Add Items
+            </div>
+          </div>
+          <div class="card-body">
+            <form method="POST" action="">
+              {% csrf_token %}
+              
+              <label class="offset-md-1"><b>Product Code: </b></label><br>
+              <span class="offset-md-1">{{ form.prod_code }} </span>
+
+              <label class="offset-md-1"><b>For User: </b></label><br>
+               <span class="offset-md-1">{{ form.for_user }}</span>
+              
+              <label class="offset-md-1"><b>Item Name: </b></label><br>
+              <span class="offset-md-1">{{ form.item_name }} </span>
+              
+              <label class="offset-md-1"><b>Item Descriptions: </b></label><br>
+              <span class="offset-md-1">{{ form.item_desc }} </span>
+              
+              <label class="offset-md-1"><b>Item Price: </b></label><br>
+              <span class="offset-md-1">{{ form.items_price }} </span>
+              
+              <label class="offset-md-1"><b>Item Image: </b></label><br>
+              <span class="offset-md-1">{{ form.item_image }} </span>
+              <br>
+              <br>
+              <button type="submit" class="btn btn-success">
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<br><br><br>
   {% endblock %}
 </body>
 </html>
