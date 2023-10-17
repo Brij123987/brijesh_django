@@ -127,6 +127,17 @@ def update_item(request, id):
 
     if form.is_valid():
         form.save()
+        
+
+        obj_Histort = Histort(
+            user_name = request.user.username,
+            prod_ref = form.instance.prod_code,
+            item_name = request.POST.get('item_name'), # form.instance.item_name
+            op_type = 'Update'
+            )     
+
+        obj_Histort.save()
+
         return redirect('food:index')
 
     context = {
