@@ -1,7 +1,7 @@
 from django.forms.models import BaseModelForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from food.models import Item
+from food.models import Item, Histort
 from food.forms import ItemForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -105,9 +105,14 @@ class CreateItem(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
 
-        
+        obj_Histort = Histort(
+            user_name = self.request.user.username,
+            prod_ref = form.instance.prod_code,
+            item_name = self.request.POST.get('item_name'), # form.instance.item_name
+            op_type = 'Created'
+        )     
 
-
+        obj_Histort.save()
 
         return super().form_valid(form)
 
