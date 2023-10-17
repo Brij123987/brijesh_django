@@ -160,6 +160,16 @@ def delete_item(request, id):
 
     if request.method == 'POST':
         item.delete()
+
+        obj_Histort = Histort(
+            user_name = request.user.username,
+            prod_ref = item.prod_code,
+            item_name = item.item_name, # form.instance.item_name
+            op_type = 'Deleted'
+            )     
+
+        obj_Histort.save()
+
         return redirect('food:index')
 
     return render(request, 'food/item-delete.html', context)
