@@ -55,8 +55,13 @@ class IndexClassView(ListView):
 def index_1(request, item_id):
     item = Item.objects.get(pk = item_id)
 
+    hist = Histort.objects.filter(
+        prod_ref = item.prod_code
+    )
+
     context = {
-        'item':item
+        'item':item,
+        'hist':hist
     }
     return render(request, 'food/detail.html', context)
 
