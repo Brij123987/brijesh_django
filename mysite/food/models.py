@@ -43,4 +43,6 @@ class Histort(models.Model):
       self.item_name,
       self.op_type
     ))
+  
+
     
