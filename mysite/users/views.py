@@ -4,6 +4,7 @@ from django.contrib import messages
 from users.forms import RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from users.models import CusOrders
 
 # Create your views here.
 
@@ -78,6 +79,31 @@ def profilepage(request):
   
   return render(request, 'users/profile.html')
 
+
+def Orders(request, id, pdcd, user):
+
+  
+  context = {
+    'pdcd':pdcd,
+    'user':user
+  }
+
+  if request.method == 'POST':
+    
+    obj_CusOrders = CusOrders(
+      prod_code = pdcd,
+      user = user,
+      quantity = request.POST.get('qty')
+
+    )
+
+    obj_CusOrders.save()
+
+    return redirect('food:index_1', item_id=id)
+    
+
+  return render(request, 'users/orders.html', context)
+  
 
 
 

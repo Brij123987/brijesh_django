@@ -1,0 +1,32 @@
+{% extends 'food/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+{% block body %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+    <p>
+      Are you sure want to confirm the orders for <b>product {{ pdcd }}</b> by <b>{{ user }}</b>
+    </p>
+
+    <label for="qty">Enter Quantity: </label><br>
+    <input type="number" id="qty" name="qty" value="1">
+
+    <button class="btn btn-danger"
+            type="submit"        
+    >
+      Confirm
+    </button>
+</form>
+
+{% endblock %}
+</body>
+</html>
