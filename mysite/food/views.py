@@ -7,6 +7,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+from users.models import CusOrders
 
 
 # Create your views here.
@@ -59,9 +60,12 @@ def index_1(request, item_id):
         prod_ref = item.prod_code
     )
 
+    obj_CusOrd = CusOrders.objects.all()
+
     context = {
         'item':item,
-        'hist':hist
+        'hist':hist,
+        'obj_CusOrd':obj_CusOrd
     }
     return render(request, 'food/detail.html', context)
 

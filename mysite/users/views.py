@@ -82,7 +82,6 @@ def profilepage(request):
 
 def Orders(request, id, pdcd, user):
 
-  
   context = {
     'pdcd':pdcd,
     'user':user
