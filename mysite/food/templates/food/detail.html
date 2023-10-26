@@ -169,7 +169,7 @@
   {% endif %}
 
   <!-- Green  -->
-    {% if user.profile.user_type == 'Cust' or user.profile.user_type == 'Admin' %}
+    {% if user.profile.user_type == 'Cust' or user.profile.user_type == 'Admin' or user.profile.user_type == 'Rest' %}
 
     {% for obj in obj_CusOrd %}
 

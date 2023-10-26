@@ -60,7 +60,20 @@ def index_1(request, item_id):
         prod_ref = item.prod_code
     )
 
-    obj_CusOrd = CusOrders.objects.all()
+    # Restaurant and Admin
+
+    if request.user.profile.user_type == 'Admin' or request.user.profile.user_type == 'Rest':
+        obj_CusOrd = CusOrders.objects.filter(
+            prod_code = item.prod_code
+        )
+        
+        
+    # Customer
+    elif request.user.profile.user_type == 'Cust':
+         obj_CusOrd = CusOrders.objects.filter(
+            prod_code = item.prod_code,
+            user = request.user.username
+        )
 
     context = {
         'item':item,
