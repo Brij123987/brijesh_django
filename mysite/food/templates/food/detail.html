@@ -187,34 +187,61 @@
             class="row"
             >
               <div 
-                class="col-md-3 
+                class="col-md-2 
                       text-left">
 
                 {{ obj.order_id }}
               </div>
 
               <div 
-              class="col-md-3 
+              class="col-md-2 
                     text-left">
                     
               {{ obj.prod_code }}
             </div>
 
-            <div 
-            class="col-md-3 
+            <div
+            class="col-md-2 
                   text-left">
                   
             {{ obj.quantity }}
           </div>
 
             <div 
-            class="col-md-3 
+            class="col-md-2
                   text-left">
                   
             {{ obj.user }}
           </div>
+          <div 
+            class="col-md-2
+                  text-left">
+                  
+            {% if user.profile.user_type == 'Cust' %}
+              
+              <a 
+              href="#"
+              class="btn btn-warning btn-sm">
+              Edit Qty
+            </a>
 
-            </div>
+            {% endif %}
+          </div>
+          <div 
+          class="col-md-2
+                text-left">
+                
+                {% if user.profile.user_type == 'Cust' %}
+              
+                <a 
+                href="#"
+                class="btn btn-primary btn-sm">
+                Buy Now
+              </a>
+  
+              {% endif %}
+        </div>
+      </div>
         </div>
 
         <div 
