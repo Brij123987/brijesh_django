@@ -220,7 +220,7 @@
             {% if user.profile.user_type == 'Cust' %}
               
               <a 
-              href="#"
+              href="{% url 'users:upd_orders' item.id obj.order_id %}"
               class="btn btn-warning btn-sm">
               Edit Qty
             </a>
