@@ -1,1 +1,48 @@
-{{ form }}
+{% extends 'food/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% block body %}
+
+  <br><br><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="card">
+          <div class="card-header text-white bg-info">
+            <div class="card-title" style="text-align: center; font-size:larger; font-style:italic">
+              Update Order
+            </div>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+              <table>
+                <tr>
+                  <td><label>Quantity: </label></td>
+                  <td>{{ form.quantity }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><button type="submit" class="btn btn-success">Confirm</button></td>
+                </tr>
+              </table>
+          
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}
+  
+</body>
+</html>
