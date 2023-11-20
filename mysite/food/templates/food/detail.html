@@ -169,7 +169,7 @@
   {% endif %}
 
   <!-- Green  -->
-    {% if user.profile.user_type == 'Cust' or user.profile.user_type == 'Admin' or user.profile.user_type == 'Rest' %}
+  {% if user.profile.user_type == 'Cust' or user.profile.user_type == 'Admin' or user.profile.user_type == 'Rest' %}
 
     {% for obj in obj_CusOrd %}
 
@@ -254,7 +254,115 @@
 
   {% endfor %}
 
-  {% endif %}        
+  {% endif %}  
+  
+
+  <!-- Add feedback and ratings button -->
+
+  {% if user.profile.user_type == 'Cust' %}
+      <a href="{% url 'users:CusRatFeed' item.id item.prod_code %}"
+      class="btn btn-dark btn-bg offset-md-5 mb-2"
+      
+      >
+      Add Feedback and Ratings
+    </a>
+  {% endif %}
+  
+  <!-- Blue -->
+
+
+  {% if user.profile.user_type == 'Cust' or user.profile.user_type == 'Admin' or user.profile.user_type == 'Rest' %}
+
+    {% for obj in crf %}
+
+      <div 
+      class="row mb-1"
+      >
+
+        <div 
+        class="col-md-8 
+              offset-md-2 
+              bg-info 
+              text-white"
+        >
+            <div
+            class="row"
+            >
+              <div 
+                class="col-md-1 
+                      text-left">
+
+                {{ obj.prod_code }}
+              </div>
+
+              <div 
+              class="col-md-1 
+                    text-left">
+                    
+              {{ obj.ratings }}
+            </div>
+
+            <div
+            class="col-md-2 
+                  text-left">
+                  
+            {{ obj.feedback }}
+          </div>
+
+            <div 
+            class="col-md-2
+                  text-left">
+                  
+            {{ obj.user_name }}
+          </div>
+            <div 
+            class="col-md-2
+                  text-left">
+                  
+            {{ obj.user_type }}
+          </div>
+          <div 
+            class="col-md-2
+                  text-left">
+                  
+            {% if obj.user_name == user.username %}
+              
+                <a 
+                href="#"
+                class="btn btn-warning btn-sm">
+                Edit
+              </a>
+
+            {% endif %}
+          </div>
+          <div 
+          class="col-md-2
+                text-left">
+                
+            {% if obj.user_name == user.username %}
+                
+              <a 
+                href="#"
+                class="btn btn-primary btn-sm">
+                Delete
+              </a>
+    
+            {% endif %}
+        </div>
+      </div>
+        </div>
+
+        <div 
+        class="col-md-2"
+        >
+          
+        </div>
+
+      </div>
+
+  {% endfor %}
+
+  {% endif %}
 
 {% endif %}
 

@@ -10,5 +10,9 @@ urlpatterns = [
 
   #Updating Customer Order
   path('upd_orders/<int:id>/<int:upd_order_id>/',views.update_orders, name='upd_orders'),
+
+  # Customer Rating and Feedback view
+  path('crf/<int:it_id>/<int:pc>/',views.CustRatFeed, name='CusRatFeed'),
+
 ]
 
