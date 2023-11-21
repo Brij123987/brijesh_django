@@ -78,6 +78,7 @@ def index_1(request, item_id):
     crf = CusRatingFeedback.objects.filter(
         prod_code = item.prod_code
         )
+    
 
     context = {
         'item':item,

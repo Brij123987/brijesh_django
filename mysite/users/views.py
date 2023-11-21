@@ -140,3 +140,29 @@ def CustRatFeed(request,it_id, pc):
   return render(request, 'users/item-from.html', context)
 
 
+def update_crf(request, details_id, crf_id):
+  crfo = CusRatingFeedback.objects.get(pk = crf_id)
+  form = CusRatFeedForm(request.POST or None, instance=crfo)
+
+  context = {
+    'form':form
+  }
+
+  if form.is_valid():
+    form.save()
+    return redirect('food:index_1', item_id=details_id)
+
+  return render(request, 'users/crf_upd.html', context)
+
+def delete_crf(request, details_id, crf_id):
+  crf_obj = CusRatingFeedback.objects.get(pk=crf_id)
+
+  context = {
+    'crf_obj':crf_obj
+  }
+
+  if request.method == 'POST':
+    crf_obj.delete()
+    return redirect('food:index_1',details_id)
+  
+  return render(request, 'users/crf_del.html', context)

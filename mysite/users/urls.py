@@ -14,5 +14,12 @@ urlpatterns = [
   # Customer Rating and Feedback view
   path('crf/<int:it_id>/<int:pc>/',views.CustRatFeed, name='CusRatFeed'),
 
+
+  #updating Customer Ratings and Feedback
+  path('crf_upd/<int:details_id>/<int:crf_id>/',views.update_crf, name='upd_crf'),
+
+  #Delete Customer Rating and Feedback
+  path('crf_delete/<int:details_id>/<int:crf_id>/',views.delete_crf, name='upd_delete'),
+
 ]
 

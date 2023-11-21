@@ -328,7 +328,7 @@
             {% if obj.user_name == user.username %}
               
                 <a 
-                href="#"
+                href="{% url 'users:upd_crf' item.id obj.id %}"
                 class="btn btn-warning btn-sm">
                 Edit
               </a>
@@ -342,7 +342,7 @@
             {% if obj.user_name == user.username %}
                 
               <a 
-                href="#"
+                href="{% url 'users:upd_delete' item.id obj.id %}"
                 class="btn btn-primary btn-sm">
                 Delete
               </a>
