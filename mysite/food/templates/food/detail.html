@@ -234,7 +234,7 @@
                 {% if user.profile.user_type == 'Cust' %}
               
                 <a 
-                href="#"
+                href="{% url 'users:buy' item.items_price obj.quantity %}"
                 class="btn btn-primary btn-sm">
                 Buy Now
               </a>

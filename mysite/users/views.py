@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from users.models import CusOrders, CusRatingFeedback
 from users.forms import CusOrdersUpd, CusRatFeedForm
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -166,3 +168,33 @@ def delete_crf(request, details_id, crf_id):
     return redirect('food:index_1',details_id)
   
   return render(request, 'users/crf_del.html', context)
+
+
+def Payment(request, amt, qnt):
+  
+  context = {
+    'amt' : amt,
+    'qnt' : qnt,
+    'tot': amt*qnt
+  }
+
+  return render(request, 'users/payment.html', context)
+
+
+def OnApprove(request):
+
+  if request.method == 'POST':
+    body = json.loads(request.body)
+    print(body)
+
+    context = {
+
+    }
+
+    return JsonResponse(context)
+  
+
+  
+def PaymentSuccess(request):
+
+  return render(request, 'users/paymentsuccess.html')

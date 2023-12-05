@@ -21,5 +21,14 @@ urlpatterns = [
   #Delete Customer Rating and Feedback
   path('crf_delete/<int:details_id>/<int:crf_id>/',views.delete_crf, name='upd_delete'),
 
+  #paypal checkout button
+  path('buy/<int:amt>/<int:qnt>/', views.Payment, name='buy'),
+
+  #Paypal on Approve
+  path('oa/',views.OnApprove, name = 'oa'),
+
+  #Payment Success
+  path('ps/',views.PaymentSuccess, name='ps'),
+
 ]
 
